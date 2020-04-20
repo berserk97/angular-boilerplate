@@ -1,41 +1,42 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { pathMap } from './core/classes/app-path-map';
 
 
 const routes: Routes = [
   // auth
   {
-    path: 'login',
+    path: pathMap.login,
     loadChildren: () => import('./pages/auth/login/login.module').then(m => m.LoginModule)
   }, {
-    path: 'sign-up',
+    path: pathMap.signUp,
     loadChildren: () => import('./pages/auth/sign-up/sign-up.module').then(m => m.SignUpModule)
   }, {
-    path: 'forgot-password',
+    path: pathMap.forgotPassword,
     loadChildren: () => import('./pages/auth/forgot-password/forgot-password.module').then(m => m.ForgotPasswordModule)
   }, {
-    path: 'forgot-password-email-sent',
+    path: pathMap.forgotPasswordEmailSent,
     loadChildren: () => import('./pages/auth/forgot-password-email-sent/forgot-password-email-sent.module')
       .then(m => m.ForgotPasswordEmailSentModule)
   }, {
-    path: 'password-reset',
+    path: pathMap.passwordReset,
     loadChildren: () => import('./pages/auth/password-reset/password-reset.module').then(m => m.PasswordResetModule)
   }, {
-    path: 'password-reset-successfully',
+    path: pathMap.passwordResetSuccessfully,
     loadChildren: () => import('./pages/auth/password-reset-successfully/password-reset-successfully.module')
       .then(m => m.PasswordResetSuccessfullyModule)
   }, {
-    path: 'password-reset-failed',
+    path: pathMap.passwordResetFailed,
     loadChildren: () => import('./pages/auth/password-reset-failed/password-reset-failed.module')
       .then(m => m.PasswordResetFailedModule)
   },
 
-  // response
+  // responses
   {
     path: 'not-found',
     loadChildren: () => import('./pages/responses/not-found/not-found.module').then(m => m.NotFoundModule)
   }, {
-    path: 'internal-server-error',
+    path: pathMap.internalServerError,
     loadChildren: () => import('./pages/responses/internal-server-error/internal-server-error.module')
       .then(m => m.InternalServerErrorModule)
   }
