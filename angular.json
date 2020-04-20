@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "angular-boilerplate"
+    }
+  },
+  "defaultProject": "angular-boilerplate",
+  "cli": {
+    "analytics": "5188b16e-a8be-4726-9c7e-08615323827a"
+  }
 }
