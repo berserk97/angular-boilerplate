@@ -8,6 +8,7 @@ import { FooterComponent } from './footer/footer.component';
   declarations: [FooterComponent],
   imports: [
     CommonModule
-  ]
+  ],
+  exports: [FooterComponent]
 })
 export class FooterModule { }
