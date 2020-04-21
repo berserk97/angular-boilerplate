@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { pathMap } from './core/classes/app-path-map';
+import { AuthGuard, NoAuthGuard } from './core/guards';
 
 const routes: Routes = [
   // auth
@@ -52,9 +53,15 @@ const routes: Routes = [
 
   // features
   {
-    path: pathMap.home,
-    loadChildren: () =>
-      import('./pages/features/home/home.module').then((m) => m.HomeModule),
+    path: '',
+    canActivate: [AuthGuard],
+    children: [
+      {
+        path: pathMap.home,
+        loadChildren: () =>
+          import('./pages/features/home/home.module').then((m) => m.HomeModule),
+      },
+    ],
   },
 
   // responses
