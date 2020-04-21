@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { PasswordResetFailedComponent } from '../password-reset-failed/password-reset-failed/password-reset-failed.component';
-
+import { PasswordResetComponent } from './password-reset/password-reset.component';
+import { NoAuthGuard } from '@app/core/guards';
 
 const routes: Routes = [
-  { path: '', component: PasswordResetFailedComponent }
+  { path: '', component: PasswordResetComponent, canActivate: [NoAuthGuard] },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class PasswordResetRoutingModule { }
+export class PasswordResetRoutingModule {}
