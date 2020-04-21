@@ -16,8 +16,8 @@ const users: User[] = [
     id: 1,
     username: 'berserk',
     password: 'test',
-    name: 'Test',
-    lastname: 'User',
+    name: 'Juan David',
+    lastname: 'García Mesa',
   },
 ];
 

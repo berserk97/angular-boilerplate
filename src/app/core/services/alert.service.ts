@@ -7,10 +7,10 @@ export class AlertService {
   constructor() {}
 
   showSuccess(message: string) {
-    alert(message);
+    alert('success: ' + message);
   }
 
   showError(message: string) {
-    alert(message);
+    alert('error: ' + message);
   }
 }

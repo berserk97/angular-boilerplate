@@ -9,11 +9,11 @@ import { AppComponent } from './app.component';
 import { GlobalErrorHandler } from './core/classes';
 
 // interceptors
-import { ServerErrorInterceptor } from './core/interceptors';
+import { ServerErrorInterceptor, JwtInterceptor } from './core/interceptors';
 
 // modules
 import { NavbarModule, FooterModule } from './ui';
-import { environment } from 'src/environments/environment';
+import { fakeBackendProvider } from './core/helpers/fake-backend';
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,11 +26,15 @@ import { environment } from 'src/environments/environment';
   ],
   providers: [
     { provide: ErrorHandler, useClass: GlobalErrorHandler },
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: ServerErrorInterceptor,
       multi: true,
     },
+
+    // provider used to create fake backend
+    fakeBackendProvider,
   ],
   bootstrap: [AppComponent],
 })
