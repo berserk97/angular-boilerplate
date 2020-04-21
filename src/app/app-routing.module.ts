@@ -59,18 +59,18 @@ const routes: Routes = [
 
   // responses
   {
-    path: '**',
-    loadChildren: () =>
-      import('./pages/responses/not-found/not-found.module').then(
-        (m) => m.NotFoundModule
-      ),
-  },
-  {
     path: pathMap.internalServerError,
     loadChildren: () =>
       import(
         './pages/responses/internal-server-error/internal-server-error.module'
       ).then((m) => m.InternalServerErrorModule),
+  },
+  {
+    path: '**',
+    loadChildren: () =>
+      import('./pages/responses/not-found/not-found.module').then(
+        (m) => m.NotFoundModule
+      ),
   },
 ];
 
