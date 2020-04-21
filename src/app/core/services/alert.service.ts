@@ -1,17 +1,16 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AlertService {
-
-  constructor() { }
+  constructor() {}
 
   showSuccess(message: string) {
-    alert('success');
+    alert(message);
   }
 
   showError(message: string) {
-    alert('error');
+    alert(message);
   }
 }
